@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Article - Roblactu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Inter;
+background:#050505;
+color:white;
+}
+
+header{
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.06);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-family:Orbitron;
+font-size:22px;
+}
+
+.logo span{color:#ff2d2d;}
+
+.back{
+color:white;
+text-decoration:none;
+padding:10px 16px;
+border-radius:12px;
+background:#111;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+}
+
+.back:hover{
+background:#ff2d2d;
+}
+
+.hero{
+padding:80px 8%;
+}
+
+.hero img{
+width:100%;
+border-radius:25px;
+height:420px;
+object-fit:cover;
+}
+
+.title{
+font-family:Orbitron;
+font-size:40px;
+margin-top:25px;
+}
+
+.meta{
+color:#aaa;
+margin-top:10px;
+}
+
+.content{
+margin-top:30px;
+line-height:1.8;
+color:#ccc;
+font-size:18px;
+}
+
+.card{
+margin-top:40px;
+padding:25px;
+background:#111;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Robl<span>actu</span></div>
+<a class="back" href="news.html">← Retour News</a>
+</header>
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1400">
+
+<h1 class="title">Nouveau jeu viral Roblox</h1>
+<div class="meta">Publié aujourd’hui • Roblox News</div>
+
+<div class="content">
+Roblox explose encore avec un nouveau jeu devenu viral en seulement quelques heures.  
+Des millions de joueurs se connectent chaque jour.
+
+<br><br>
+
+Les développeurs parlent déjà d’une mise à jour massive avec :
+<ul>
+<li>nouveaux modes de jeu</li>
+<li>skins exclusifs</li>
+<li>events live</li>
+</ul>
+
+</div>
+
+<div class="card">
+🔥 Article sponsorisé Roblactu — gaming next gen
+</div>
+  <div class="engagement">
+
+<div class="stats">
+  <div>👁 <span id="views">0</span> vues</div>
+  <div>❤️ <span id="likes">0</span> likes</div>
+</div>
+
+<button onclick="likeArticle()" class="btn">Like ❤️</button>
+
+</div>
+
+<!-- COMMENTS -->
+<div class="comments">
+<h2>Commentaires 💬</h2>
+
+<div id="comment-list"></div>
+
+<div class="comment-box">
+<input id="comment-input" placeholder="Écrire un commentaire...">
+<button onclick="addComment()">Envoyer</button>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>

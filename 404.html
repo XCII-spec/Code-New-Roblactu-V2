@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 — Roblactu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#050505;
+font-family:'Inter',sans-serif;
+color:white;
+position:relative;
+}
+
+/* BACKGROUND */
+
+.bg{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at top left,#ff000025,transparent 30%),
+radial-gradient(circle at bottom right,#ff2d2d10,transparent 35%),
+linear-gradient(#050505,#090909);
+z-index:-2;
+}
+
+.grid{
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+background-size:50px 50px;
+opacity:0.15;
+z-index:-1;
+}
+
+/* CARD */
+
+.card{
+width:90%;
+max-width:700px;
+padding:50px;
+border-radius:35px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+text-align:center;
+box-shadow:
+0 0 40px rgba(255,0,0,0.12);
+animation:fadeUp 1s ease;
+}
+
+.code{
+font-size:140px;
+font-family:'Orbitron';
+line-height:1;
+color:#ff2d2d;
+text-shadow:
+0 0 25px rgba(255,45,45,0.5),
+0 0 60px rgba(255,45,45,0.2);
+}
+
+h1{
+font-size:38px;
+margin-top:10px;
+font-family:'Orbitron';
+}
+
+p{
+margin-top:20px;
+color:#aaa;
+line-height:1.7;
+font-size:18px;
+}
+
+/* BUTTONS */
+
+.buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 28px;
+border-radius:16px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.primary{
+background:#ff2d2d;
+color:white;
+box-shadow:0 0 30px rgba(255,45,45,0.25);
+}
+
+.primary:hover{
+transform:translateY(-5px);
+background:#d10000;
+}
+
+.secondary{
+background:#111;
+border:1px solid rgba(255,255,255,0.08);
+color:white;
+}
+
+.secondary:hover{
+transform:translateY(-5px);
+}
+
+/* FLOAT */
+
+.float{
+position:absolute;
+font-size:22px;
+opacity:0.12;
+animation:float 8s linear infinite;
+}
+
+.float:nth-child(1){top:10%;left:10%;}
+.float:nth-child(2){top:20%;right:15%;}
+.float:nth-child(3){bottom:15%;left:20%;}
+.float:nth-child(4){bottom:10%;right:10%;}
+
+@keyframes float{
+50%{
+transform:translateY(-20px);
+}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+
+<div class="float">⚠️</div>
+<div class="float">🚫</div>
+<div class="float">💀</div>
+<div class="float">❌</div>
+
+<div class="card">
+
+<div class="code">404</div>
+
+<h1>PAGE INTROUVABLE</h1>
+
+<p>
+Cette page a disparu dans le multivers Roblox...  
+ou elle n’a jamais existé 👀
+</p>
+
+<div class="buttons">
+<a href="index.html" class="btn primary">Retour Accueil</a>
+<a href="news.html" class="btn secondary">Explorer les News</a>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Roblactu — Next Gen Roblox Media</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+background:#050505;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+position:fixed;inset:0;z-index:-3;
+background:
+radial-gradient(circle at top left,#ff000025,transparent 30%),
+radial-gradient(circle at bottom right,#ff2d2d15,transparent 35%),
+linear-gradient(#050505,#0a0a0a);
+}
+
+.grid{
+position:fixed;inset:0;z-index:-2;
+background-image:
+linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+background-size:60px 60px;
+opacity:0.2;
+}
+
+/* LOADER */
+#loader{
+position:fixed;inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#050505;
+z-index:9999;
+animation:fadeOut 1s ease forwards;
+animation-delay:2.8s;
+}
+
+.loader-logo{
+width:120px;height:120px;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 0 40px #ff2d2d66;
+animation:pulse 1.8s infinite;
+}
+
+.loader-logo img{width:100%;height:100%;object-fit:cover;}
+
+#loader h1{
+font-family:'Orbitron';
+font-size:52px;
+margin-top:25px;
+letter-spacing:4px;
+text-shadow:0 0 25px #ff2d2d;
+}
+
+.loading-bar{
+width:280px;height:8px;
+background:#111;
+border-radius:999px;
+margin-top:30px;
+overflow:hidden;
+}
+
+.loading-fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#ff2d2d,#fff);
+animation:load 2.8s linear forwards;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(16px);
+background:rgba(0,0,0,0.5);
+border-bottom:1px solid rgba(255,255,255,0.06);
+z-index:999;
+}
+
+.logo{display:flex;align-items:center;gap:12px;}
+
+.logo-box{
+width:52px;height:52px;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 25px #ff2d2d55;
+}
+
+.logo-box img{width:100%;height:100%;object-fit:cover;}
+
+.logo h1{
+font-family:'Orbitron';
+font-size:24px;
+}
+
+.logo span{color:#ff2d2d;}
+
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#bbb;
+transition:0.3s;
+font-weight:500;
+}
+
+.nav-links a:hover{
+color:#ff2d2d;
+transform:translateY(-2px);
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:150px 8% 80px;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.hero-left{flex:1;min-width:320px;}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border-radius:999px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.dot{
+width:9px;height:9px;border-radius:50%;
+background:#ff2d2d;
+box-shadow:0 0 15px #ff2d2d;
+}
+
+.hero h2{
+font-family:'Orbitron';
+font-size:clamp(50px,7vw,100px);
+line-height:0.95;
+}
+
+.hero h2 span{color:#ff2d2d;}
+
+.hero p{
+margin-top:20px;
+color:#bdbdbd;
+max-width:600px;
+line-height:1.7;
+}
+
+.hero-buttons{
+margin-top:30px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 26px;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.primary{
+background:#ff2d2d;
+color:white;
+box-shadow:0 0 25px #ff2d2d33;
+}
+
+.primary:hover{transform:translateY(-4px);}
+
+.secondary{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+color:white;
+}
+
+.secondary:hover{transform:translateY(-4px);}
+
+/* CARD DASHBOARD */
+.hero-card{
+flex:1;
+min-width:320px;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+margin-top:20px;
+}
+
+.stat{
+background:rgba(255,255,255,0.04);
+padding:20px;
+border-radius:18px;
+text-align:center;
+transition:0.3s;
+}
+
+.stat:hover{
+transform:translateY(-5px);
+background:rgba(255,45,45,0.08);
+}
+
+.stat h3{color:#ff2d2d;font-size:34px;}
+
+/* SECTION */
+.section{padding:110px 8%;}
+
+.section-title{
+font-family:'Orbitron';
+font-size:46px;
+margin-bottom:35px;
+}
+
+.section-title span{color:#ff2d2d;}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+}
+
+.card{
+padding:30px;
+border-radius:22px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+}
+
+/* NEWS */
+.news-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:22px;
+}
+
+.news-card{
+border-radius:22px;
+overflow:hidden;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.news-card:hover{transform:translateY(-8px);}
+
+.news-card img{width:100%;height:200px;object-fit:cover;}
+
+.news-content{padding:20px;color:#ccc;}
+
+/* FOOTER */
+footer{
+padding:40px 8%;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+border-top:1px solid rgba(255,255,255,0.06);
+color:#888;
+}
+
+/* ANIMATIONS */
+@keyframes load{to{width:100%;}}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
+@keyframes pulse{50%{transform:scale(1.05);}}
+
+/* SCROLL ANIM */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-links{display:none;}
+.hero{flex-direction:column;text-align:center;}
+.hero-buttons{justify-content:center;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+
+<div id="loader">
+<div class="loader-logo"><img src="logo.png"></div>
+<h1>ROBLACTU</h1>
+<div class="loading-bar"><div class="loading-fill"></div></div>
+</div>
+
+<nav>
+<div class="logo">
+<div class="logo-box"><img src="logo.png"></div>
+<h1>Robl<span>actu</span></h1>
+</div>
+
+<div class="nav-links">
+<a href="#home">Accueil</a>
+<a href="#news">News</a>
+<a href="#features">Features</a>
+</div>
+</nav>
+
+<section class="hero reveal" id="home">
+<div class="hero-left">
+<div class="badge"><div class="dot"></div>NEXT GEN PLATFORM</div>
+<h2>THE NEXT <span>GEN</span><br>ROBLOX MEDIA</h2>
+<p>Plateforme gaming + news + communauté nouvelle génération Roblox.</p>
+<div class="hero-buttons">
+<a class="btn primary" href="#news">Explorer</a>
+<a class="btn secondary" href="#features">Découvrir</a>
+</div>
+</div>
+
+<div class="hero-card">
+<h3>Dashboard</h3>
+<div class="stats">
+<div class="stat"><h3>24K</h3><p>Users</p></div>
+<div class="stat"><h3>320+</h3><p>News</p></div>
+<div class="stat"><h3>120</h3><p>Games</p></div>
+<div class="stat"><h3>99%</h3><p>Style</p></div>
+</div>
+</div>
+</section>
+
+<section class="section reveal" id="features">
+<h2 class="section-title">WHY <span>ROBLACTU</span></h2>
+
+<div class="cards">
+<div class="card">🎮 Gaming ultra sélectionné</div>
+<div class="card">⚡ Ultra performance UI</div>
+<div class="card">🔥 Design next-gen</div>
+</div>
+</section>
+
+<section class="section reveal" id="news">
+<h2 class="section-title">TOP <span>NEWS</span></h2>
+
+<div class="news-grid">
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200">
+<div class="news-content">Nouveau jeu viral Roblox</div>
+</div>
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200">
+<div class="news-content">Update Roblox majeure</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div>Roblactu</div>
+<div>© 2026</div>
+</footer>
+
+<script>
+
+// loader
+window.addEventListener("load",()=>{
+setTimeout(()=>document.getElementById("loader").style.display="none",2800);
+});
+
+// scroll reveal
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add("active");
+});
+});
+
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+
+</script>
+
+</body>
+</html>

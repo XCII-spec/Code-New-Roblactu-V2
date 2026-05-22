@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maintenance — Roblactu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:#050505;
+font-family:'Inter',sans-serif;
+color:white;
+position:relative;
+}
+
+/* BG */
+
+.bg{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at center,#ff2d2d15,transparent 40%),
+linear-gradient(#050505,#0b0b0b);
+z-index:-2;
+}
+
+.grid{
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+background-size:60px 60px;
+opacity:0.15;
+z-index:-1;
+}
+
+/* CARD */
+
+.card{
+width:90%;
+max-width:750px;
+padding:60px;
+border-radius:35px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+text-align:center;
+box-shadow:
+0 0 45px rgba(255,45,45,0.12);
+animation:fade 1s ease;
+}
+
+.icon{
+font-size:90px;
+animation:rotate 6s linear infinite;
+}
+
+h1{
+font-family:'Orbitron';
+font-size:50px;
+margin-top:20px;
+}
+
+h1 span{
+color:#ff2d2d;
+}
+
+p{
+margin-top:20px;
+font-size:18px;
+color:#aaa;
+line-height:1.8;
+}
+
+/* BAR */
+
+.bar{
+width:100%;
+height:10px;
+background:#111;
+border-radius:999px;
+overflow:hidden;
+margin-top:35px;
+}
+
+.fill{
+height:100%;
+width:65%;
+background:linear-gradient(90deg,#ff2d2d,#ffffff);
+animation:progress 3s infinite alternate;
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:15px 28px;
+border-radius:16px;
+background:#ff2d2d;
+color:white;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+box-shadow:0 0 30px rgba(255,45,45,0.25);
+}
+
+.btn:hover{
+transform:translateY(-5px);
+background:#d10000;
+}
+
+@keyframes rotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+@keyframes progress{
+from{
+width:30%;
+}
+to{
+width:85%;
+}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+
+<div class="card">
+
+<div class="icon">🛠</div>
+
+<h1>EN <span>MAINTENANCE</span></h1>
+
+<p>
+Roblactu reçoit une énorme mise à jour next-gen 🚀  
+Nos développeurs travaillent sur de nouvelles fonctionnalités.
+</p>
+
+<div class="bar">
+<div class="fill"></div>
+</div>
+
+<a href="index.html" class="btn">
+Retour Accueil
+</a>
+
+</div>
+
+</body>
+</html>
